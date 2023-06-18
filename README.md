@@ -1,0 +1,3 @@
+# Spam_Machine
+(Backend)
+Pool of existing messages to be sent to acquaintances, these are also associated with specific people each message can have one or more people or failing that a person can have more than one message, the messages have categories based on that then can be grouped and then you can send them to a specific person can be daily phrases, love messages, there is also a schedule to send messages to people, so you must have a panel to make all the settings and in turn have a history where you can review absolutely all messages that have been sent, with their categories, with their dates and also with the time.
