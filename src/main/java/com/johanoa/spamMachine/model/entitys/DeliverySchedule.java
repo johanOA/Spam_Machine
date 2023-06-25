@@ -5,6 +5,8 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 import java.sql.Time;
+import java.time.LocalTime;
+
 @Entity
 @Setter
 @Getter
@@ -15,8 +17,8 @@ public class DeliverySchedule {
     @Id
     @EqualsAndHashCode.Include
     private int id;
-    private Time startTime;
-    private Time endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private DaysOfWeek daysOfWeek;
 
 }
