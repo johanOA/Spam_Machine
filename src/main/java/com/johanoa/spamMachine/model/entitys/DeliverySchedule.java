@@ -1,10 +1,8 @@
 package com.johanoa.spamMachine.model.entitys;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Time;
 import java.time.LocalTime;
 
 @Entity
@@ -16,9 +14,14 @@ import java.time.LocalTime;
 public class DeliverySchedule {
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id")
     private int id;
+    @Column(name="Start Time")
     private LocalTime startTime;
+    @Column(name="End Time")
     private LocalTime endTime;
+    @Column(name="Days Of Week")
     private DaysOfWeek daysOfWeek;
 
 }

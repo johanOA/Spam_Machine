@@ -1,7 +1,6 @@
 package com.johanoa.spamMachine.model.entitys;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -15,8 +14,12 @@ import java.io.Serializable;
 public class User implements Serializable {
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private String id;
+    @Column(name = "Username")
     private String username;
+    @Column(name = "Password")
     private String password;
 
 }

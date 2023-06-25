@@ -1,7 +1,6 @@
 package com.johanoa.spamMachine.model.entitys;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -13,6 +12,9 @@ import lombok.*;
 public class DeliveryConfiguration {
     @Id
     @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id")
     private int id;
+    @Column(name="Allowed Categories")
     private String allowedCategories;
 }
