@@ -5,15 +5,18 @@ import lombok.*;
 
 import java.io.Serializable;
 
+/**
+ * Represents an addressee entity in the system.
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Person implements Serializable {
+public class Addressee implements Serializable {
     /**
-     * The unique identifier of the person.
+     * The unique identifier of the addressee.
      */
     @Id
     @EqualsAndHashCode.Include
@@ -22,17 +25,19 @@ public class Person implements Serializable {
     private int id;
 
     /**
-     * The name of the person.
+     * The name of the addressee.
      */
     @Column(name = "Name", nullable = false, length = 20)
     private String name;
+
     /**
-     * The last name of the person.
+     * The last name of the addressee.
      */
     @Column(name = "Lastname", nullable = false, length = 10)
     private String lastname;
+
     /**
-     * The email of the person.
+     * The email of the addressee.
      */
     @Column(name = "Email", nullable = false, length = 50, unique = true)
     private String email;

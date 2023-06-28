@@ -1,8 +1,6 @@
 package com.johanoa.spamMachine.model.entitys;
-
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -13,15 +11,27 @@ import java.time.LocalTime;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Message implements Serializable {
+    /**
+     * The unique identifier of the message.
+     */
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false, unique = true)
     private int id;
-    @Column(name="Content")
+    /**
+     * The content of the message.
+     */
+    @Column(name = "Content", nullable = false, length = 3000)
     private String content;
-    @Column(name="Scheduled Date")
+    /**
+     * The scheduled date for sending the message.
+     */
+    @Column(name = "Scheduled Date", nullable = false)
     private LocalDate scheduledDate;
-    @Column(name="Scheduled Time")
-    private LocalTime sheduledTime;
+    /**
+     * The scheduled time for sending the message.
+     */
+    @Column(name = "Scheduled Time", nullable = false)
+    private LocalTime scheduledTime;
 }

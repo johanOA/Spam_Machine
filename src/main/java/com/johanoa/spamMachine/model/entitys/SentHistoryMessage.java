@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
 @Entity
 @Getter
 @Setter
@@ -11,14 +12,24 @@ import java.time.LocalTime;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class SentHistoryMessage {
+    /**
+     * The unique identifier of the sent history message.
+     */
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false, unique = true)
     private int id;
-    @Column(name = "Sent Date")
-    private LocalDate sentDate;
-    @Column(name = "Sent Time")
-    private LocalTime sentTime;
 
+    /**
+     * The date when the message was sent.
+     */
+    @Column(name = "Sent Date", nullable = false)
+    private LocalDate sentDate;
+
+    /**
+     * The time when the message was sent.
+     */
+    @Column(name = "Sent Time", nullable = false)
+    private LocalTime sentTime;
 }

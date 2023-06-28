@@ -2,9 +2,7 @@ package com.johanoa.spamMachine.model.entitys;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalTime;
-
 @Entity
 @Setter
 @Getter
@@ -12,16 +10,27 @@ import java.time.LocalTime;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class DeliverySchedule {
+    /**
+     * The unique identifier of the delivery schedule.
+     */
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Id")
+    @Column(name = "Id", unique = true, nullable = false)
     private int id;
-    @Column(name="Start Time")
+    /**
+     * The start time for message delivery.
+     */
+    @Column(name = "Start Time", nullable = false)
     private LocalTime startTime;
-    @Column(name="End Time")
+    /**
+     * The end time for message delivery.
+     */
+    @Column(name = "End Time", nullable = false)
     private LocalTime endTime;
-    @Column(name="Days Of Week")
+    /**
+     * The days of the week for message delivery.
+     */
+    @Column(name = "Days Of Week", nullable = false)
     private DaysOfWeek daysOfWeek;
-
 }
